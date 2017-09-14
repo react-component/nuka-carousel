@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport"
+        content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css" rel="stylesheet"/>
+  <title>rmc-nuka-carousel@3.0.0-alpha.0 - Pure React Carousel</title>
+  <style>
+    @font-face {
+      font-family: octicons-anchor;
+      src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+    }
+
+    .markdown-body, .examples, #readme {
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      color: #333;
+      overflow: hidden;
+      font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      word-wrap: break-word;
+    }
+
+    .markdown-body a, .examples a {
+      background-color: transparent;
+    }
+
+    .markdown-body a:active,
+    .markdown-body a:hover {
+      outline: 0;
+    }
+
+    .markdown-body strong {
+      font-weight: bold;
+    }
+
+    .markdown-body h1 {
+      font-size: 2em;
+      margin: 0.67em 0;
+    }
+
+    .markdown-body img {
+      border: 0;
+    }
+
+    .markdown-body hr {
+      box-sizing: content-box;
+      height: 0;
+    }
+
+    .markdown-body pre {
+      overflow: auto;
+    }
+
+    .markdown-body code,
+    .markdown-body kbd,
+    .markdown-body pre {
+      font-family: monospace, monospace;
+      font-size: 1em;
+    }
+
+    .markdown-body input {
+      color: inherit;
+      font: inherit;
+      margin: 0;
+    }
+
+    .markdown-body html input[disabled] {
+      cursor: default;
+    }
+
+    .markdown-body input {
+      line-height: normal;
+    }
+
+    .markdown-body input[type="checkbox"] {
+      box-sizing: border-box;
+      padding: 0;
+    }
+
+    .markdown-body table {
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+
+    .markdown-body td,
+    .markdown-body th {
+      padding: 0;
+    }
+
+    .markdown-body * {
+      box-sizing: border-box;
+    }
+
+    .markdown-body input {
+      font: 13px/1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+    }
+
+    .markdown-body a {
+      color: #4078c0;
+      text-decoration: none;
+    }
+
+    .markdown-body a:hover,
+    .markdown-body a:active {
+      text-decoration: underline;
+    }
+
+    .markdown-body hr {
+      height: 0;
+      margin: 15px 0;
+      overflow: hidden;
+      background: transparent;
+      border: 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .markdown-body hr:before {
+      display: table;
+      content: "";
+    }
+
+    .markdown-body hr:after {
+      display: table;
+      clear: both;
+      content: "";
+    }
+
+    .markdown-body h1,
+    .markdown-body h2,
+    .markdown-body h3,
+    .markdown-body h4,
+    .markdown-body h5,
+    .markdown-body h6 {
+      margin-top: 15px;
+      margin-bottom: 15px;
+      line-height: 1.1;
+    }
+
+    .markdown-body h1 {
+      font-size: 30px;
+    }
+
+    .markdown-body h2 {
+      font-size: 21px;
+    }
+
+    .markdown-body h3 {
+      font-size: 16px;
+    }
+
+    .markdown-body h4 {
+      font-size: 14px;
+    }
+
+    .markdown-body h5 {
+      font-size: 12px;
+    }
+
+    .markdown-body h6 {
+      font-size: 11px;
+    }
+
+    .markdown-body blockquote {
+      margin: 0;
+    }
+
+    .markdown-body ul,
+    .markdown-body ol {
+      padding: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    .markdown-body ol ol,
+    .markdown-body ul ol {
+      list-style-type: lower-roman;
+    }
+
+    .markdown-body ul ul ol,
+    .markdown-body ul ol ol,
+    .markdown-body ol ul ol,
+    .markdown-body ol ol ol {
+      list-style-type: lower-alpha;
+    }
+
+    .markdown-body dd {
+      margin-left: 0;
+    }
+
+    .markdown-body code {
+      font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      font-size: 12px;
+    }
+
+    .markdown-body pre {
+      margin-top: 0;
+      margin-bottom: 0;
+      font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    }
+
+    .markdown-body .octicon {
+      font: normal normal normal 16px/1 octicons-anchor;
+      display: inline-block;
+      text-decoration: none;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    .markdown-body .octicon-link:before {
+      content: '\f05c';
+    }
+
+    .markdown-body > *:first-child {
+      margin-top: 0 !important;
+    }
+
+    .markdown-body > *:last-child {
+      margin-bottom: 0 !important;
+    }
+
+    .markdown-body a:not([href]) {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .markdown-body .anchor {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      padding-right: 6px;
+      padding-left: 30px;
+      margin-left: -30px;
+    }
+
+    .markdown-body .anchor:focus {
+      outline: none;
+    }
+
+    .markdown-body h1,
+    .markdown-body h2,
+    .markdown-body h3,
+    .markdown-body h4,
+    .markdown-body h5,
+    .markdown-body h6 {
+      position: relative;
+      margin-top: 1em;
+      margin-bottom: 16px;
+      font-weight: bold;
+      line-height: 1.4;
+    }
+
+    .markdown-body h1 .octicon-link,
+    .markdown-body h2 .octicon-link,
+    .markdown-body h3 .octicon-link,
+    .markdown-body h4 .octicon-link,
+    .markdown-body h5 .octicon-link,
+    .markdown-body h6 .octicon-link {
+      display: none;
+      color: #000;
+      vertical-align: middle;
+    }
+
+    .markdown-body h1:hover .anchor,
+    .markdown-body h2:hover .anchor,
+    .markdown-body h3:hover .anchor,
+    .markdown-body h4:hover .anchor,
+    .markdown-body h5:hover .anchor,
+    .markdown-body h6:hover .anchor {
+      padding-left: 8px;
+      margin-left: -30px;
+      text-decoration: none;
+    }
+
+    .markdown-body h1:hover .anchor .octicon-link,
+    .markdown-body h2:hover .anchor .octicon-link,
+    .markdown-body h3:hover .anchor .octicon-link,
+    .markdown-body h4:hover .anchor .octicon-link,
+    .markdown-body h5:hover .anchor .octicon-link,
+    .markdown-body h6:hover .anchor .octicon-link {
+      display: inline-block;
+    }
+
+    .markdown-body h1 {
+      padding-bottom: 0.3em;
+      font-size: 2.25em;
+      line-height: 1.2;
+      border-bottom: 1px solid #eee;
+    }
+
+    .markdown-body h1 .anchor {
+      line-height: 1;
+    }
+
+    .markdown-body h2 {
+      padding-bottom: 0.3em;
+      font-size: 1.75em;
+      line-height: 1.225;
+      border-bottom: 1px solid #eee;
+    }
+
+    .markdown-body h2 .anchor {
+      line-height: 1;
+    }
+
+    .markdown-body h3 {
+      font-size: 1.5em;
+      line-height: 1.43;
+    }
+
+    .markdown-body h3 .anchor {
+      line-height: 1.2;
+    }
+
+    .markdown-body h4 {
+      font-size: 1.25em;
+    }
+
+    .markdown-body h4 .anchor {
+      line-height: 1.2;
+    }
+
+    .markdown-body h5 {
+      font-size: 1em;
+    }
+
+    .markdown-body h5 .anchor {
+      line-height: 1.1;
+    }
+
+    .markdown-body h6 {
+      font-size: 1em;
+      color: #777;
+    }
+
+    .markdown-body h6 .anchor {
+      line-height: 1.1;
+    }
+
+    .markdown-body p,
+    .markdown-body blockquote,
+    .markdown-body ul,
+    .markdown-body ol,
+    .markdown-body dl,
+    .markdown-body table,
+    .markdown-body pre {
+      margin-top: 0;
+      margin-bottom: 16px;
+    }
+
+    .markdown-body hr {
+      height: 4px;
+      padding: 0;
+      margin: 16px 0;
+      background-color: #e7e7e7;
+      border: 0 none;
+    }
+
+    .markdown-body ul,
+    .markdown-body ol {
+      padding-left: 2em;
+    }
+
+    .markdown-body ul ul,
+    .markdown-body ul ol,
+    .markdown-body ol ol,
+    .markdown-body ol ul {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    .markdown-body li > p {
+      margin-top: 16px;
+    }
+
+    .markdown-body dl {
+      padding: 0;
+    }
+
+    .markdown-body dl dt {
+      padding: 0;
+      margin-top: 16px;
+      font-size: 1em;
+      font-style: italic;
+      font-weight: bold;
+    }
+
+    .markdown-body dl dd {
+      padding: 0 16px;
+      margin-bottom: 16px;
+    }
+
+    .markdown-body blockquote {
+      padding: 0 15px;
+      color: #777;
+      border-left: 4px solid #ddd;
+    }
+
+    .markdown-body blockquote > :first-child {
+      margin-top: 0;
+    }
+
+    .markdown-body blockquote > :last-child {
+      margin-bottom: 0;
+    }
+
+    .markdown-body table {
+      display: block;
+      width: 100%;
+      overflow: auto;
+      word-break: normal;
+      word-break: keep-all;
+    }
+
+    .markdown-body table th {
+      font-weight: bold;
+    }
+
+    .markdown-body table th,
+    .markdown-body table td {
+      padding: 6px 13px;
+      border: 1px solid #ddd;
+    }
+
+    .markdown-body table tr {
+      background-color: #fff;
+      border-top: 1px solid #ccc;
+    }
+
+    .markdown-body table tr:nth-child(2n) {
+      background-color: #f8f8f8;
+    }
+
+    .markdown-body img {
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .markdown-body code {
+      padding: 0;
+      padding-top: 0.2em;
+      padding-bottom: 0.2em;
+      margin: 0;
+      font-size: 85%;
+      background-color: rgba(0, 0, 0, 0.04);
+      border-radius: 3px;
+    }
+
+    .markdown-body code:before,
+    .markdown-body code:after {
+      letter-spacing: -0.2em;
+      content: "\00a0";
+    }
+
+    .markdown-body pre > code {
+      padding: 0;
+      margin: 0;
+      font-size: 100%;
+      word-break: normal;
+      white-space: pre;
+      background: transparent;
+      border: 0;
+    }
+
+    .markdown-body .highlight {
+      margin-bottom: 16px;
+    }
+
+    .markdown-body .highlight pre,
+    .markdown-body pre {
+      padding: 16px;
+      overflow: auto;
+      font-size: 85%;
+      line-height: 1.45;
+      background-color: #f7f7f7;
+      border-radius: 3px;
+    }
+
+    .markdown-body .highlight pre {
+      margin-bottom: 0;
+      word-break: normal;
+    }
+
+    .markdown-body pre {
+      word-wrap: normal;
+    }
+
+    .markdown-body pre code {
+      display: inline;
+      max-width: initial;
+      padding: 0;
+      margin: 0;
+      overflow: initial;
+      line-height: inherit;
+      word-wrap: normal;
+      background-color: transparent;
+      border: 0;
+    }
+
+    .markdown-body pre code:before,
+    .markdown-body pre code:after {
+      content: normal;
+    }
+
+    .markdown-body kbd {
+      display: inline-block;
+      padding: 3px 5px;
+      font-size: 11px;
+      line-height: 10px;
+      color: #555;
+      vertical-align: middle;
+      background-color: #fcfcfc;
+      border: solid 1px #ccc;
+      border-bottom-color: #bbb;
+      border-radius: 3px;
+      box-shadow: inset 0 -1px 0 #bbb;
+    }
+
+    .markdown-body kbd {
+      display: inline-block;
+      padding: 3px 5px;
+      font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      line-height: 10px;
+      color: #555;
+      vertical-align: middle;
+      background-color: #fcfcfc;
+      border: solid 1px #ccc;
+      border-bottom-color: #bbb;
+      border-radius: 3px;
+      box-shadow: inset 0 -1px 0 #bbb;
+    }
+
+    .markdown-body .task-list-item {
+      list-style-type: none;
+    }
+
+    .markdown-body .task-list-item + .task-list-item {
+      margin-top: 3px;
+    }
+
+    .markdown-body .task-list-item input {
+      margin: 0 0.35em 0.25em -1.6em;
+      vertical-align: middle;
+    }
+
+    .markdown-body:checked + .radio-label {
+      z-index: 1;
+      position: relative;
+      border-color: #4078c0;
+    }
+
+    #readme, .examples {
+      min-width: 200px;
+      max-width: 790px;
+      margin: 30px auto;
+      padding: 0 30px;
+    }
+
+    #readme .boxed-group {
+      position: relative;
+      border-radius: 3px;
+      margin-bottom: 30px;
+    }
+
+    #readme .markdown-body,
+    #readme .plain,
+    .examples .examples-body {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-bottom-left-radius: 3px;
+      border-bottom-right-radius: 3px;
+      padding: 30px;
+      word-wrap: break-word;
+    }
+
+    .boxed-group > h3,
+    .examples > h3,
+    .boxed-group .heading {
+      background-color: #f5f5f5;
+      margin: 0;
+      border-radius: 3px 3px 0 0;
+      border: 1px solid #d8d8d8;
+      border-bottom: 0;
+      padding: 9px 10px 10px;
+      font-size: 14px;
+      line-height: 17px;
+      display: block;
+    }
+
+    .examples-body ul {
+      margin: 0;
+    }
+  </style>
+  <style type="text/css">
+    /*
+
+    github.com style (c) Vasily Polovnyov <vast@whiteants.net>
+
+    */
+
+    .hljs {
+      display: block;
+      overflow-x: auto;
+      padding: 0.5em;
+      color: #333;
+      background: #f8f8f8;
+      -webkit-text-size-adjust: none;
+    }
+
+    .hljs-comment,
+    .diff .hljs-header {
+      color: #998;
+      font-style: italic;
+    }
+
+    .hljs-keyword,
+    .css .rule .hljs-keyword,
+    .hljs-winutils,
+    .nginx .hljs-title,
+    .hljs-subst,
+    .hljs-request,
+    .hljs-status {
+      color: #333;
+      font-weight: bold;
+    }
+
+    .hljs-number,
+    .hljs-hexcolor,
+    .ruby .hljs-constant {
+      color: #008080;
+    }
+
+    .hljs-string,
+    .hljs-tag .hljs-value,
+    .hljs-doctag,
+    .tex .hljs-formula {
+      color: #d14;
+    }
+
+    .hljs-title,
+    .hljs-id,
+    .scss .hljs-preprocessor {
+      color: #900;
+      font-weight: bold;
+    }
+
+    .hljs-list .hljs-keyword,
+    .hljs-subst {
+      font-weight: normal;
+    }
+
+    .hljs-class .hljs-title,
+    .hljs-type,
+    .vhdl .hljs-literal,
+    .tex .hljs-command {
+      color: #458;
+      font-weight: bold;
+    }
+
+    .hljs-tag,
+    .hljs-tag .hljs-title,
+    .hljs-rule .hljs-property,
+    .django .hljs-tag .hljs-keyword {
+      color: #000080;
+      font-weight: normal;
+    }
+
+    .hljs-attribute,
+    .hljs-variable,
+    .lisp .hljs-body,
+    .hljs-name {
+      color: #008080;
+    }
+
+    .hljs-regexp {
+      color: #009926;
+    }
+
+    .hljs-symbol,
+    .ruby .hljs-symbol .hljs-string,
+    .lisp .hljs-keyword,
+    .clojure .hljs-keyword,
+    .scheme .hljs-keyword,
+    .tex .hljs-special,
+    .hljs-prompt {
+      color: #990073;
+    }
+
+    .hljs-built_in {
+      color: #0086b3;
+    }
+
+    .hljs-preprocessor,
+    .hljs-pragma,
+    .hljs-pi,
+    .hljs-doctype,
+    .hljs-shebang,
+    .hljs-cdata {
+      color: #999;
+      font-weight: bold;
+    }
+
+    .hljs-deletion {
+      background: #fdd;
+    }
+
+    .hljs-addition {
+      background: #dfd;
+    }
+
+    .diff .hljs-change {
+      background: #0086b3;
+    }
+
+    .hljs-chunk {
+      color: #aaa;
+    }
+
+    .header {
+      min-width: 200px;
+      max-width: 790px;
+      margin:0 auto;
+    }
+  </style>
+</head>
+
+<body>
+<div class="header">
+  <h1>rmc-nuka-carousel@3.0.0-alpha.0</h1>
+</div>
+<div class="examples">
+  <h3>EXAMPLES</h3>
+  <div class="examples-body">
+    <ul>
+      
+      <li><a href="examples/index.html">index</a></li>
+      
+    </ul>
+  </div>
+</div>
+<div id="readme" class="boxed-group">
+  <h3>README.md</h3>
+  <div class="markdown-body">
+    <h2>Modify from upstream nuka-carousel@2.0.4<a id="user-content-modify-from-upstream-nuka-carousel@2.0.4" name="modify-from-upstream-nuka-carousel@2.0.4" class="anchor" aria-hidden="true" href="#modify-from-upstream-nuka-carousel@2.0.4"><span class="octicon octicon-link"></span></a></h2><blockquote>
+<p>Search for <code>by warmhug</code> comments in source file to see detailed changes.
+This fork stream&#39;s version begin from <code>2.2.0</code> and the npm package name is <code>rmc-nuka-carousel</code>.</p>
+</blockquote>
+<ul>
+<li>add <code>swipeSpeed</code> prop, you can configure the swipe sensitivity.</li>
+<li>add <code>resetAutoplay</code> props, when set false, you can remove the sense of frustration between the items to switch.（自动循环播放时、第一个和第二个项目之间切换时的顿挫感）</li>
+</ul>
+<p>Note: if you set <code>autoplayInterval</code> prop to less than 1000, You need to set the <code>speed</code> prop to less than 300 at the same time.</p>
+<h4>develop<a id="user-content-develop" name="develop" class="anchor" aria-hidden="true" href="#develop"><span class="octicon octicon-link"></span></a></h4><div class="highlight"><pre><code language="sh"><span class="hljs-comment"># after modify and submit to master, you need add tag by yourself, e.g.</span>
+git tag v2.<span class="hljs-number">2.0</span>
+git push --tags</code></pre></div><hr>
+<p>#nuka-carousel</p>
+<p>A Pure ReactJS Carousel Component</p>
+<p><img src="http://i.imgur.com/UwP5gle.gif" alt="http://i.imgur.com/UwP5gle.gif"></p>
+<p>###Install</p>
+<div class="highlight"><pre><code language="undefined">npm install nuka-carousel</code></pre></div><p>###Example</p>
+<div class="highlight"><pre><code language="javascript"><span class="hljs-pi">'use strict'</span>;
+
+<span class="hljs-keyword">var</span> React = <span class="hljs-built_in">require</span>(<span class="hljs-string">'react'</span>);
+
+<span class="hljs-keyword">var</span> Carousel = <span class="hljs-built_in">require</span>(<span class="hljs-string">'nuka-carousel'</span>);
+
+<span class="hljs-keyword">const</span> App = React.createClass({
+  mixins: [Carousel.ControllerMixin],
+  render() {
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">Carousel</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"http://placehold.it/1000x400/ffffff/c0392b/&amp;text=slide1"</span>/&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"http://placehold.it/1000x400/ffffff/c0392b/&amp;text=slide2"</span>/&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"http://placehold.it/1000x400/ffffff/c0392b/&amp;text=slide3"</span>/&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"http://placehold.it/1000x400/ffffff/c0392b/&amp;text=slide4"</span>/&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"http://placehold.it/1000x400/ffffff/c0392b/&amp;text=slide5"</span>/&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"http://placehold.it/1000x400/ffffff/c0392b/&amp;text=slide6"</span>/&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-title">Carousel</span>&gt;</span>
+    )</span>
+  }
+});
+
+<span class="hljs-built_in">module</span>.exports = App;</code></pre></div><p>###Running demo locally</p>
+<p>The demo can be launched on local machine via <code>webpack-dev-server</code>. Run the following:</p>
+<div class="highlight"><pre><code language="javascript"><span class="hljs-comment">// if webpack-dev-server is not installed globally</span>
+./node_modules/.bin/webpack-dev-server</code></pre></div><p>Now, you can access the application on  your localhost at following url: <a href="http://localhost:8080/demo" target="_blank">Demo</a></p>
+<p>###Props</p>
+<p>####afterSlide
+<code>React.PropTypes.func</code></p>
+<p>Hook to be called after a slide is changed.</p>
+<p>####autoplay
+<code>React.PropTypes.bool</code></p>
+<p>Autoplay mode active. Defaults to false.</p>
+<p>####autoplayInterval
+<code>React.PropTypes.number</code></p>
+<p>Interval for autoplay iteration. Defaults to 3000.</p>
+<p>####beforeSlide
+<code>React.PropTypes.func</code></p>
+<p>Hook to be called before a slide is changed.</p>
+<p>####cellAlign
+<code>React.PropTypes.oneOf([&#39;left&#39;, &#39;center&#39;, &#39;right&#39;])</code></p>
+<p>When displaying more than one slide, sets which position to anchor the current slide to.</p>
+<p>####cellSpacing
+<code>React.PropTypes.number</code></p>
+<p>Space between slides, as an integer, but reflected as <code>px</code></p>
+<p>####data
+<code>React.PropTypes.func</code></p>
+<p>Used with the ControllerMixin to add carousel data to parent state.</p>
+<p>####decorators
+<code>React.PropTypes.array</code></p>
+<p>An array of objects that supply internal carousel controls.
+Decorator objects have <code>component</code>, <code>position</code> &amp; <code>style</code> properties. <code>component</code> takes a React component, <code>position</code> takes a predefined position string and <code>style</code> takes an object of styles to be applied to the decorator. See an example below:</p>
+<div class="highlight"><pre><code language="javascript"><span class="hljs-keyword">var</span> Decorators = [{
+  component: React.createClass({
+    render() {
+      <span class="hljs-keyword">return</span> (
+        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">button</span>
+          <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{this.props.previousSlide}</span>&gt;</span>
+          Previous Slide
+        <span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+      )</span>
+    }
+  }),
+  position: <span class="hljs-string">'CenterLeft'</span>,
+  style: {
+    padding: <span class="hljs-number">20</span>
+  }
+}];
+
+<span class="hljs-comment">// Valid position properties are TopLeft, TopCenter, TopRight</span>
+<span class="hljs-comment">// CenterLeft, CenterCenter, CenterRight, BottomLeft, BottomCenter</span>
+<span class="hljs-comment">// and BottomRight</span></code></pre></div><p>####dragging
+<code>React.PropTypes.bool</code></p>
+<p>Enable mouse swipe/dragging</p>
+<p>####easing
+<code>React.PropTypes.string</code></p>
+<p>Animation easing function. See valid easings here: <a href="https://github.com/chenglou/tween-functions" title="null">https://github.com/chenglou/tween-functions</a></p>
+<p>####framePadding
+<code>React.PropTypes.string</code></p>
+<p>Used to set the margin of the slider frame. Accepts any string dimension value such as <code>&quot;0px 20px&quot;</code> or <code>&quot;500px&quot;</code>.</p>
+<p>####frameOverflow
+<code>React.PropTypes.string</code></p>
+<p>Used to set overflow style property on slider frame. Defaults to <code>hidden</code>.</p>
+<p>####edgeEasing
+<code>React.PropTypes.string</code></p>
+<p>Animation easing function when swipe exceeds edge. See valid easings here: <a href="https://github.com/chenglou/tween-functions" title="null">https://github.com/chenglou/tween-functions</a></p>
+<p>####initialSlideHeight
+<code>React.PropTypes.number</code></p>
+<p>Initial height of the slides in pixels.</p>
+<p>####initialSlideWidth
+<code>React.PropTypes.number</code></p>
+<p>Initial width of the slides in pixels.</p>
+<p>####slideIndex
+<code>React.PropTypes.number</code></p>
+<p>Manually set the index of the slide to be shown.</p>
+<p>####slidesToShow
+<code>React.PropTypes.number</code></p>
+<p>Slides to show at once.</p>
+<p>####slidesToScroll</p>
+<div class="highlight"><pre><code language="js">slidesToScroll: React.PropTypes.oneOfType([
+  React.PropTypes.number,
+  React.PropTypes.oneOf([<span class="hljs-string">'auto'</span>])
+])</code></pre></div><p>Slides to scroll at once. Set to <code>&quot;auto&quot;</code> to always scroll the current number of visible slides.</p>
+<p>####slideWidth</p>
+<p><code>React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number])</code></p>
+<p>Manually set slideWidth. If you want hard pixel widths, use a string like <code>slideWidth=&quot;20px&quot;</code>, and if you prefer a percentage of the container, use a decimal integer like <code>slideWidth={0.8}</code></p>
+<p>####speed
+<code>React.PropTypes.number</code></p>
+<p>Animation duration.</p>
+<p>####swiping
+<code>React.PropTypes.bool</code></p>
+<p>Enable touch swipe/dragging</p>
+<p>####vertical
+<code>React.PropTypes.bool</code></p>
+<p>Enable the slides to transition vertically.</p>
+<p>####width
+<code>React.PropTypes.string</code></p>
+<p>Used to hardcode the slider width. Accepts any string dimension value such as <code>&quot;80%&quot;</code> or <code>&quot;500px&quot;</code>.</p>
+<p>####wrapAround
+<code>React.PropTypes.bool</code></p>
+<p>Sets infinite wrapAround mode. Defaults to <code>false</code></p>
+<p>###ControllerMixin</p>
+<p>The ControllerMixin provides a way to add external controllers for a carousel. To use the controller mixin, add it to your parent component as shown below:</p>
+<div class="highlight"><pre><code language="javascript"><span class="hljs-keyword">const</span> App = React.createClass({
+  mixins: [Carousel.ControllerMixin],
+  render() {
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">Carousel</span> <span class="hljs-attribute">ref</span>=<span class="hljs-value">"carousel"</span> <span class="hljs-attribute">data</span>=<span class="hljs-value">{this.setCarouselData.bind(this,</span> '<span class="hljs-attribute">carousel</span>')}&gt;</span>
+        ...
+      <span class="hljs-tag">&lt;/<span class="hljs-title">Carousel</span>&gt;</span>
+    )</span>
+  }
+});</code></pre></div><p>It is required to give your component a ref value, and to pass the setCarouselData method to the data prop with the same ref as an argument.</p>
+<p>After setting this up, your parent component has a carousels object in it&#39;s state. You can now control your carousels from other child components:</p>
+<div class="highlight"><pre><code language="javascript"><span class="hljs-keyword">const</span> App = React.createClass({
+  mixins: [Carousel.ControllerMixin],
+  render() {
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">Carousel</span> <span class="hljs-attribute">ref</span>=<span class="hljs-value">"carousel"</span> <span class="hljs-attribute">data</span>=<span class="hljs-value">{this.setCarouselData.bind(this,</span> '<span class="hljs-attribute">carousel</span>')}&gt;</span>
+        ...
+      <span class="hljs-tag">&lt;/<span class="hljs-title">Carousel</span>&gt;</span>
+      {this.state.carousels.carousel ? <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"button"</span> <span class="hljs-attribute">onClick</span>=<span class="hljs-value">{this.state.carousels.carousel.goToSlide.bind(null,4)}</span>&gt;</span>
+        Go to slide 5
+      <span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span> : null}
+    )
+  }
+});</span></code></pre></div><h3>Contributing<a id="user-content-contributing" name="contributing" class="anchor" aria-hidden="true" href="#contributing"><span class="octicon octicon-link"></span></a></h3><p>See the <a href="CONTRIBUTING.html" title="Contribution Docs">Contribution Docs</a>.</p>
+
+  </div>
+</div>
+<a href="https://github.com/kenwheeler/nuka-carousel"><img style="position: absolute; top: 0; right: 0; border: 0;"
+                            src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67"
+                            alt="Fork me on GitHub"
+                            data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+</body>
+
+</html>
