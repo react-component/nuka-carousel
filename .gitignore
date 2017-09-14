@@ -35,3 +35,5 @@ dist
 
 *.log
 *.log.*
+yarn.lock
+_ts2js
