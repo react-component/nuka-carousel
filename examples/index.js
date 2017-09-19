@@ -10485,6 +10485,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_dom__ = __webpack_require__(191);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react_dom__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_tween_functions__ = __webpack_require__(275);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_tween_functions___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_tween_functions__);
+
 
 
 
@@ -10516,10 +10519,10 @@ var App = function (_React$Component) {
 
             return __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
                 'div',
-                { style: { width: '50%', margin: 'auto' } },
+                null,
                 __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
                     __WEBPACK_IMPORTED_MODULE_4__src_carousel__["a" /* default */],
-                    { autoplay: false, wrapAround: true, speed: 1000, autoplayInterval: 1000, resetAutoplay: false, swipeSpeed: 35, slideIndex: this.state.slideIndex, afterSlide: function afterSlide(newSlideIndex) {
+                    { style: { minHeight: 100 }, easing: __WEBPACK_IMPORTED_MODULE_7_tween_functions__["easeOutElastic"], autoplay: false, wrapAround: true, speed: 1000, autoplayInterval: 1000, resetAutoplay: false, swipeSpeed: 35, slideIndex: this.state.slideIndex, afterSlide: function afterSlide(newSlideIndex) {
                             return _this2.setState({ slideIndex: newSlideIndex });
                         } },
                     __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement('img', { src: 'http://placehold.it/1000x400&text=slide1' }),
@@ -10530,46 +10533,50 @@ var App = function (_React$Component) {
                     __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement('img', { src: 'http://placehold.it/1000x400&text=slide6' })
                 ),
                 __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-                    'button',
-                    { onClick: function onClick() {
-                            return _this2.setState({ slideIndex: 0 });
-                        } },
-                    '1'
-                ),
-                __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-                    'button',
-                    { onClick: function onClick() {
-                            return _this2.setState({ slideIndex: 1 });
-                        } },
-                    '2'
-                ),
-                __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-                    'button',
-                    { onClick: function onClick() {
-                            return _this2.setState({ slideIndex: 2 });
-                        } },
-                    '3'
-                ),
-                __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-                    'button',
-                    { onClick: function onClick() {
-                            return _this2.setState({ slideIndex: 3 });
-                        } },
-                    '4'
-                ),
-                __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-                    'button',
-                    { onClick: function onClick() {
-                            return _this2.setState({ slideIndex: 4 });
-                        } },
-                    '5'
-                ),
-                __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-                    'button',
-                    { onClick: function onClick() {
-                            return _this2.setState({ slideIndex: 5 });
-                        } },
-                    '6'
+                    'div',
+                    { style: { width: '50%', margin: 'auto' } },
+                    __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+                        'button',
+                        { onClick: function onClick() {
+                                return _this2.setState({ slideIndex: 0 });
+                            } },
+                        '1'
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+                        'button',
+                        { onClick: function onClick() {
+                                return _this2.setState({ slideIndex: 1 });
+                            } },
+                        '2'
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+                        'button',
+                        { onClick: function onClick() {
+                                return _this2.setState({ slideIndex: 2 });
+                            } },
+                        '3'
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+                        'button',
+                        { onClick: function onClick() {
+                                return _this2.setState({ slideIndex: 3 });
+                            } },
+                        '4'
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+                        'button',
+                        { onClick: function onClick() {
+                                return _this2.setState({ slideIndex: 4 });
+                            } },
+                        '5'
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+                        'button',
+                        { onClick: function onClick() {
+                                return _this2.setState({ slideIndex: 5 });
+                            } },
+                        '6'
+                    )
                 )
             );
         }
@@ -10600,10 +10607,8 @@ __WEBPACK_IMPORTED_MODULE_6_react_dom___default.a.render(__WEBPACK_IMPORTED_MODU
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__decorators__ = __webpack_require__(129);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_exenv__ = __webpack_require__(172);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_exenv___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_exenv__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_tween_functions__ = __webpack_require__(275);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_tween_functions___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_tween_functions__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_raf__ = __webpack_require__(189);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_raf___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_raf__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_raf__ = __webpack_require__(189);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_raf___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_raf__);
 
 
 
@@ -10615,9 +10620,16 @@ __WEBPACK_IMPORTED_MODULE_6_react_dom___default.a.render(__WEBPACK_IMPORTED_MODU
 
 
 
-
+// from https://github.com/chenglou/tween-functions
+function easeOutCirc(t, b, _c, d) {
+    var c = _c - b;
+    return c * Math.sqrt(1 - (t = t / d - 1) * t) + b;
+}
+function linear(t, b, _c, d) {
+    var c = _c - b;
+    return c * t / d + b;
+}
 var DEFAULT_STACK_BEHAVIOR = 'ADDITIVE';
-var DEFAULT_EASING = __WEBPACK_IMPORTED_MODULE_8_tween_functions__["easeInOutQuad"];
 var DEFAULT_DURATION = 300;
 var DEFAULT_DELAY = 0;
 var stackBehavior = {
@@ -10685,7 +10697,7 @@ var Carousel = function (_React$Component) {
             _this.setState({
                 tweenQueue: newTweenQueue
             });
-            _this._rafID = __WEBPACK_IMPORTED_MODULE_9_raf___default()(_this._rafCb);
+            _this._rafID = __WEBPACK_IMPORTED_MODULE_8_raf___default()(_this._rafCb);
         };
         _this.handleClick = function (e) {
             if (_this.clickSafe === true) {
@@ -10842,7 +10854,7 @@ var Carousel = function (_React$Component) {
         value: function componentWillUnmount() {
             this.unbindEvents();
             this.stopAutoplay();
-            __WEBPACK_IMPORTED_MODULE_9_raf___default.a.cancel(this._rafID);
+            __WEBPACK_IMPORTED_MODULE_8_raf___default.a.cancel(this._rafID);
             this._rafID = -1;
         }
         // react-tween-state
@@ -10877,7 +10889,7 @@ var Carousel = function (_React$Component) {
                 }
                 // see the reasoning for these defaults at the top of file
                 var newConfig = {
-                    easing: easing || DEFAULT_EASING,
+                    easing: easing,
                     duration: duration == null ? DEFAULT_DURATION : duration,
                     delay: delay == null ? DEFAULT_DELAY : delay,
                     beginValue: beginValue == null ? cursor[stateName] : beginValue,
@@ -10904,7 +10916,7 @@ var Carousel = function (_React$Component) {
                 // we can stop worrying about nonesense like this
                 cursor[stateName] = newConfig.endValue;
                 if (newTweenQueue.length === 1) {
-                    _this2._rafID = __WEBPACK_IMPORTED_MODULE_9_raf___default()(_this2._rafCb);
+                    _this2._rafID = __WEBPACK_IMPORTED_MODULE_8_raf___default()(_this2._rafCb);
                 }
                 // this will also include the above mutated update
                 return { tweenQueue: newTweenQueue };
@@ -11116,13 +11128,13 @@ var Carousel = function (_React$Component) {
             if (this.touchObject.length > this.state.slideWidth / slidesToShow / swipeSpeed) {
                 if (this.touchObject.direction === 1) {
                     if (this.state.currentSlide >= __WEBPACK_IMPORTED_MODULE_5_react___default.a.Children.count(this.props.children) - slidesToShow && !this.props.wrapAround) {
-                        this.animateSlide(__WEBPACK_IMPORTED_MODULE_8_tween_functions___default.a[this.props.edgeEasing]);
+                        this.animateSlide(this.props.edgeEasing);
                     } else {
                         this.nextSlide();
                     }
                 } else if (this.touchObject.direction === -1) {
                     if (this.state.currentSlide <= 0 && !this.props.wrapAround) {
-                        this.animateSlide(__WEBPACK_IMPORTED_MODULE_8_tween_functions___default.a[this.props.edgeEasing]);
+                        this.animateSlide(this.props.edgeEasing);
                     } else {
                         this.previousSlide();
                     }
@@ -11189,7 +11201,7 @@ var Carousel = function (_React$Component) {
         key: 'animateSlide',
         value: function animateSlide(easing, duration, endValue, callback) {
             this.tweenState(this.props.vertical ? 'top' : 'left', {
-                easing: easing || __WEBPACK_IMPORTED_MODULE_8_tween_functions___default.a[this.props.easing],
+                easing: easing || this.props.easing,
                 duration: duration || this.props.speed,
                 endValue: endValue || this.getTargetLeft(),
                 delay: null,
@@ -11576,8 +11588,8 @@ Carousel.defaultProps = {
     data: function data() {},
     decorators: __WEBPACK_IMPORTED_MODULE_6__decorators__["a" /* default */],
     dragging: true,
-    easing: 'easeOutCirc',
-    edgeEasing: 'easeOutElastic',
+    easing: easeOutCirc,
+    edgeEasing: linear,
     framePadding: '0px',
     frameOverflow: 'hidden',
     slideIndex: 0,

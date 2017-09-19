@@ -7,7 +7,7 @@
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css" rel="stylesheet"/>
-  <title>rmc-nuka-carousel@3.0.0-alpha.1 - Pure React Carousel</title>
+  <title>rmc-nuka-carousel@3.0.0-alpha.2 - Pure React Carousel</title>
   <style>
     @font-face {
       font-family: octicons-anchor;
@@ -737,7 +737,7 @@
 
 <body>
 <div class="header">
-  <h1>rmc-nuka-carousel@3.0.0-alpha.1</h1>
+  <h1>rmc-nuka-carousel@3.0.0-alpha.2</h1>
 </div>
 <div class="examples">
   <h3>EXAMPLES</h3>
@@ -844,8 +844,8 @@ Decorator objects have <code>component</code>, <code>position</code> &amp; <code
 <code>React.PropTypes.bool</code></p>
 <p>Enable mouse swipe/dragging</p>
 <p>####easing
-<code>React.PropTypes.string</code></p>
-<p>Animation easing function. See valid easings here: <a href="https://github.com/chenglou/tween-functions" title="null">https://github.com/chenglou/tween-functions</a></p>
+<code>React.PropTypes.Function</code></p>
+<p>Animation easing function. Default is <code>easeOutCirc</code>. See valid easings here: <a href="https://github.com/chenglou/tween-functions" title="null">https://github.com/chenglou/tween-functions</a></p>
 <p>####framePadding
 <code>React.PropTypes.string</code></p>
 <p>Used to set the margin of the slider frame. Accepts any string dimension value such as <code>&quot;0px 20px&quot;</code> or <code>&quot;500px&quot;</code>.</p>
@@ -853,8 +853,8 @@ Decorator objects have <code>component</code>, <code>position</code> &amp; <code
 <code>React.PropTypes.string</code></p>
 <p>Used to set overflow style property on slider frame. Defaults to <code>hidden</code>.</p>
 <p>####edgeEasing
-<code>React.PropTypes.string</code></p>
-<p>Animation easing function when swipe exceeds edge. See valid easings here: <a href="https://github.com/chenglou/tween-functions" title="null">https://github.com/chenglou/tween-functions</a></p>
+<code>React.PropTypes.Function</code></p>
+<p>Animation easing function when swipe exceeds edge. Default is <code>linear</code>. See valid easings here: <a href="https://github.com/chenglou/tween-functions" title="null">https://github.com/chenglou/tween-functions</a></p>
 <p>####initialSlideHeight
 <code>React.PropTypes.number</code></p>
 <p>Initial height of the slides in pixels.</p>
