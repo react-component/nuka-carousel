@@ -3,11 +3,19 @@
 import React from 'react';
 import decorators from './decorators';
 import ExecutionEnvironment from 'exenv';
-import easingTypes, { easeInOutQuad } from 'tween-functions';
 import requestAnimationFrame from 'raf';
 
+// from https://github.com/chenglou/tween-functions
+function easeOutCirc(t, b, _c, d) {
+  var c = _c - b;
+  return c * Math.sqrt(1 - (t = t / d - 1) * t) + b;
+}
+function linear(t, b, _c, d) {
+  var c = _c - b;
+  return c * t / d + b;
+}
+
 const DEFAULT_STACK_BEHAVIOR = 'ADDITIVE';
-const DEFAULT_EASING = easeInOutQuad;
 const DEFAULT_DURATION = 300;
 const DEFAULT_DELAY = 0;
 
@@ -59,8 +67,8 @@ export interface ICarouselProps {
   data?: () => void;
   decorators?: any[];
   dragging?: boolean;
-  easing?: string;
-  edgeEasing?: string;
+  easing?: Function;
+  edgeEasing?: Function;
   framePadding?: string;
   frameOverflow?: string;
   initialSlideHeight?: number;
@@ -89,8 +97,8 @@ class Carousel extends React.Component<ICarouselProps, any> {
     data: () => {},
     decorators,
     dragging: true,
-    easing: 'easeOutCirc',
-    edgeEasing: 'easeOutElastic',
+    easing: easeOutCirc,
+    edgeEasing: linear,
     framePadding: '0px',
     frameOverflow: 'hidden',
     slideIndex: 0,
@@ -185,7 +193,7 @@ class Carousel extends React.Component<ICarouselProps, any> {
       }
       // see the reasoning for these defaults at the top of file
       const newConfig = {
-        easing: easing || DEFAULT_EASING,
+        easing,
         duration: duration == null ? DEFAULT_DURATION : duration,
         delay: delay == null ? DEFAULT_DELAY : delay,
         beginValue: beginValue == null ? cursor[stateName] : beginValue,
@@ -525,13 +533,13 @@ class Carousel extends React.Component<ICarouselProps, any> {
           this.state.currentSlide >= React.Children.count(this.props.children) - slidesToShow! &&
           !this.props.wrapAround
         ) {
-          this.animateSlide(easingTypes[this.props.edgeEasing]);
+          this.animateSlide(this.props.edgeEasing);
         } else {
           this.nextSlide();
         }
       } else if (this.touchObject.direction === -1) {
         if (this.state.currentSlide <= 0 && !this.props.wrapAround) {
-          this.animateSlide(easingTypes[this.props.edgeEasing]);
+          this.animateSlide(this.props.edgeEasing);
         } else {
           this.previousSlide();
         }
@@ -688,7 +696,7 @@ class Carousel extends React.Component<ICarouselProps, any> {
 
   animateSlide(easing?: any, duration?: any, endValue?: any, callback?: Function) {
     this.tweenState(this.props.vertical ? 'top' : 'left', {
-      easing: easing || easingTypes[this.props.easing],
+      easing: easing || this.props.easing,
       duration: duration || this.props.speed,
       endValue: endValue || this.getTargetLeft(),
       delay: null,

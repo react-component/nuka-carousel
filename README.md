@@ -140,9 +140,9 @@ var Decorators = [{
 Enable mouse swipe/dragging
 
 ####easing
-`React.PropTypes.string`
+`React.PropTypes.Function`
 
-Animation easing function. See valid easings here: [https://github.com/chenglou/tween-functions](https://github.com/chenglou/tween-functions)
+Animation easing function. Default is `easeOutCirc`. See valid easings here: [https://github.com/chenglou/tween-functions](https://github.com/chenglou/tween-functions)
 
 ####framePadding
 `React.PropTypes.string`
@@ -155,9 +155,9 @@ Used to set the margin of the slider frame. Accepts any string dimension value s
 Used to set overflow style property on slider frame. Defaults to `hidden`.
 
 ####edgeEasing
-`React.PropTypes.string`
+`React.PropTypes.Function`
 
-Animation easing function when swipe exceeds edge. See valid easings here: [https://github.com/chenglou/tween-functions](https://github.com/chenglou/tween-functions)
+Animation easing function when swipe exceeds edge. Default is `linear`. See valid easings here: [https://github.com/chenglou/tween-functions](https://github.com/chenglou/tween-functions)
 
 ####initialSlideHeight
 `React.PropTypes.number`

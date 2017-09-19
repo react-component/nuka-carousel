@@ -1,13 +1,12 @@
 {
   "name": "rmc-nuka-carousel",
-  "version": "3.0.0-alpha.1",
+  "version": "3.0.0-alpha.2",
   "description": "Pure React Carousel",
   "main": "./lib/index",
   "module": "./es/index",
   "dependencies": {
     "exenv": "^1.2.0",
-    "raf": "^3.3.2",
-    "tween-functions": "^1.2.0"
+    "raf": "^3.3.2"
   },
   "devDependencies": {
     "@types/mocha": "~2.2.32",
@@ -18,7 +17,8 @@
     "rc-test": "~6.0.3",
     "rc-tools": "6.x",
     "react": "^15.0.0",
-    "react-dom": "^15.0.0"
+    "react-dom": "^15.0.0",
+    "tween-functions": "^1.2.0"
   },
   "files": [
     "lib",
