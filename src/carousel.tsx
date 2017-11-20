@@ -145,7 +145,7 @@ class Carousel extends React.Component<ICarouselProps, any> {
     this.setDimensions();
     this.bindEvents();
     this.setExternalData();
-    if (this.props.autoplay) {
+    if (this.props.autoplay && this.props.children.length > 1) {
       this.startAutoplay();
     }
   }
@@ -159,7 +159,7 @@ class Carousel extends React.Component<ICarouselProps, any> {
       this.goToSlide(nextProps.slideIndex);
     }
     if (this.props.autoplay !== nextProps.autoplay) {
-      if (nextProps.autoplay) {
+      if (nextProps.autoplay && nextProps.children.length > 1) {
         this.startAutoplay();
       } else {
         this.stopAutoplay();
