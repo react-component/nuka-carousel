@@ -10335,9 +10335,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_dom__ = __webpack_require__(191);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_react_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_react_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_tween_functions__ = __webpack_require__(275);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_tween_functions___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_tween_functions__);
-
 
 
 
@@ -10372,15 +10369,15 @@ var App = function (_React$Component) {
                 null,
                 __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
                     __WEBPACK_IMPORTED_MODULE_4__src_carousel__["a" /* default */],
-                    { style: { minHeight: 100 }, easing: __WEBPACK_IMPORTED_MODULE_7_tween_functions__["easeOutElastic"], autoplay: false, wrapAround: true, speed: 1000, autoplayInterval: 1000, resetAutoplay: false, swipeSpeed: 35, slideIndex: this.state.slideIndex, afterSlide: function afterSlide(newSlideIndex) {
+                    { style: { minHeight: 100 }, autoplay: true, wrapAround: true, autoplayInterval: 2000, resetAutoplay: false, slideIndex: this.state.slideIndex, afterSlide: function afterSlide(newSlideIndex) {
                             return _this2.setState({ slideIndex: newSlideIndex });
                         } },
-                    __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement('img', { src: 'http://placehold.it/1000x400&text=slide1' }),
-                    __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement('img', { src: 'http://placehold.it/1000x400&text=slide2' }),
-                    __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement('img', { src: 'http://placehold.it/1000x400&text=slide3' }),
-                    __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement('img', { src: 'http://placehold.it/1000x400&text=slide4' }),
-                    __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement('img', { src: 'http://placehold.it/1000x400&text=slide5' }),
-                    __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement('img', { src: 'http://placehold.it/1000x400&text=slide6' })
+                    __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement('img', { src: 'http://placehold.it/1000x400&text=slide1', style: { maxWidth: '100%' } }),
+                    __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement('img', { src: 'http://placehold.it/1000x400&text=slide2', style: { maxWidth: '100%' } }),
+                    __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement('img', { src: 'http://placehold.it/1000x400&text=slide3', style: { maxWidth: '100%' } }),
+                    __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement('img', { src: 'http://placehold.it/1000x400&text=slide4', style: { maxWidth: '100%' } }),
+                    __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement('img', { src: 'http://placehold.it/1000x400&text=slide5', style: { maxWidth: '100%' } }),
+                    __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement('img', { src: 'http://placehold.it/1000x400&text=slide6', style: { maxWidth: '100%' } })
                 ),
                 __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
                     'div',
@@ -10975,7 +10972,7 @@ var Carousel = function (_React$Component) {
             if (slidesToScroll === 'auto') {
                 slidesToShow = this.state.slidesToScroll;
             }
-            if (this.touchObject.length > this.state.slideWidth / slidesToShow / swipeSpeed) {
+            if (__WEBPACK_IMPORTED_MODULE_5_react___default.a.Children.count(this.props.children) > 1 && this.touchObject.length > this.state.slideWidth / slidesToShow / swipeSpeed) {
                 if (this.touchObject.direction === 1) {
                     if (this.state.currentSlide >= __WEBPACK_IMPORTED_MODULE_5_react___default.a.Children.count(this.props.children) - slidesToShow && !this.props.wrapAround) {
                         this.animateSlide(this.props.edgeEasing);
@@ -11028,6 +11025,9 @@ var Carousel = function (_React$Component) {
     }, {
         key: 'startAutoplay',
         value: function startAutoplay() {
+            if (__WEBPACK_IMPORTED_MODULE_5_react___default.a.Children.count(this.props.children) <= 1) {
+                return;
+            }
             this.autoplayID = setInterval(this.autoplayIterator, this.props.autoplayInterval);
         }
     }, {
@@ -11430,7 +11430,7 @@ Carousel.defaultProps = {
     afterSlide: function afterSlide() {},
     autoplay: false,
     resetAutoplay: true,
-    swipeSpeed: 5,
+    swipeSpeed: 12,
     autoplayInterval: 3000,
     beforeSlide: function beforeSlide() {},
     cellAlign: 'left',
@@ -14890,7 +14890,7 @@ module.exports.polyfill = function(object) {
   object.cancelAnimationFrame = caf
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(276)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(275)))
 
 /***/ }),
 /* 191 */
@@ -25151,262 +25151,6 @@ module.exports = traverseAllChildren;
 
 /***/ }),
 /* 275 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-// t: current time, b: beginning value, _c: final value, d: total duration
-var tweenFunctions = {
-  linear: function(t, b, _c, d) {
-    var c = _c - b;
-    return c * t / d + b;
-  },
-  easeInQuad: function(t, b, _c, d) {
-    var c = _c - b;
-    return c * (t /= d) * t + b;
-  },
-  easeOutQuad: function(t, b, _c, d) {
-    var c = _c - b;
-    return -c * (t /= d) * (t - 2) + b;
-  },
-  easeInOutQuad: function(t, b, _c, d) {
-    var c = _c - b;
-    if ((t /= d / 2) < 1) {
-      return c / 2 * t * t + b;
-    } else {
-      return -c / 2 * ((--t) * (t - 2) - 1) + b;
-    }
-  },
-  easeInCubic: function(t, b, _c, d) {
-    var c = _c - b;
-    return c * (t /= d) * t * t + b;
-  },
-  easeOutCubic: function(t, b, _c, d) {
-    var c = _c - b;
-    return c * ((t = t / d - 1) * t * t + 1) + b;
-  },
-  easeInOutCubic: function(t, b, _c, d) {
-    var c = _c - b;
-    if ((t /= d / 2) < 1) {
-      return c / 2 * t * t * t + b;
-    } else {
-      return c / 2 * ((t -= 2) * t * t + 2) + b;
-    }
-  },
-  easeInQuart: function(t, b, _c, d) {
-    var c = _c - b;
-    return c * (t /= d) * t * t * t + b;
-  },
-  easeOutQuart: function(t, b, _c, d) {
-    var c = _c - b;
-    return -c * ((t = t / d - 1) * t * t * t - 1) + b;
-  },
-  easeInOutQuart: function(t, b, _c, d) {
-    var c = _c - b;
-    if ((t /= d / 2) < 1) {
-      return c / 2 * t * t * t * t + b;
-    } else {
-      return -c / 2 * ((t -= 2) * t * t * t - 2) + b;
-    }
-  },
-  easeInQuint: function(t, b, _c, d) {
-    var c = _c - b;
-    return c * (t /= d) * t * t * t * t + b;
-  },
-  easeOutQuint: function(t, b, _c, d) {
-    var c = _c - b;
-    return c * ((t = t / d - 1) * t * t * t * t + 1) + b;
-  },
-  easeInOutQuint: function(t, b, _c, d) {
-    var c = _c - b;
-    if ((t /= d / 2) < 1) {
-      return c / 2 * t * t * t * t * t + b;
-    } else {
-      return c / 2 * ((t -= 2) * t * t * t * t + 2) + b;
-    }
-  },
-  easeInSine: function(t, b, _c, d) {
-    var c = _c - b;
-    return -c * Math.cos(t / d * (Math.PI / 2)) + c + b;
-  },
-  easeOutSine: function(t, b, _c, d) {
-    var c = _c - b;
-    return c * Math.sin(t / d * (Math.PI / 2)) + b;
-  },
-  easeInOutSine: function(t, b, _c, d) {
-    var c = _c - b;
-    return -c / 2 * (Math.cos(Math.PI * t / d) - 1) + b;
-  },
-  easeInExpo: function(t, b, _c, d) {
-    var c = _c - b;
-    return (t==0) ? b : c * Math.pow(2, 10 * (t/d - 1)) + b;
-  },
-  easeOutExpo: function(t, b, _c, d) {
-    var c = _c - b;
-    return (t==d) ? b+c : c * (-Math.pow(2, -10 * t/d) + 1) + b;
-  },
-  easeInOutExpo: function(t, b, _c, d) {
-    var c = _c - b;
-    if (t === 0) {
-      return b;
-    }
-    if (t === d) {
-      return b + c;
-    }
-    if ((t /= d / 2) < 1) {
-      return c / 2 * Math.pow(2, 10 * (t - 1)) + b;
-    } else {
-      return c / 2 * (-Math.pow(2, -10 * --t) + 2) + b;
-    }
-  },
-  easeInCirc: function(t, b, _c, d) {
-    var c = _c - b;
-    return -c * (Math.sqrt(1 - (t /= d) * t) - 1) + b;
-  },
-  easeOutCirc: function(t, b, _c, d) {
-    var c = _c - b;
-    return c * Math.sqrt(1 - (t = t / d - 1) * t) + b;
-  },
-  easeInOutCirc: function(t, b, _c, d) {
-    var c = _c - b;
-    if ((t /= d / 2) < 1) {
-      return -c / 2 * (Math.sqrt(1 - t * t) - 1) + b;
-    } else {
-      return c / 2 * (Math.sqrt(1 - (t -= 2) * t) + 1) + b;
-    }
-  },
-  easeInElastic: function(t, b, _c, d) {
-    var c = _c - b;
-    var a, p, s;
-    s = 1.70158;
-    p = 0;
-    a = c;
-    if (t === 0) {
-      return b;
-    } else if ((t /= d) === 1) {
-      return b + c;
-    }
-    if (!p) {
-      p = d * 0.3;
-    }
-    if (a < Math.abs(c)) {
-      a = c;
-      s = p / 4;
-    } else {
-      s = p / (2 * Math.PI) * Math.asin(c / a);
-    }
-    return -(a * Math.pow(2, 10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math.PI) / p)) + b;
-  },
-  easeOutElastic: function(t, b, _c, d) {
-    var c = _c - b;
-    var a, p, s;
-    s = 1.70158;
-    p = 0;
-    a = c;
-    if (t === 0) {
-      return b;
-    } else if ((t /= d) === 1) {
-      return b + c;
-    }
-    if (!p) {
-      p = d * 0.3;
-    }
-    if (a < Math.abs(c)) {
-      a = c;
-      s = p / 4;
-    } else {
-      s = p / (2 * Math.PI) * Math.asin(c / a);
-    }
-    return a * Math.pow(2, -10 * t) * Math.sin((t * d - s) * (2 * Math.PI) / p) + c + b;
-  },
-  easeInOutElastic: function(t, b, _c, d) {
-    var c = _c - b;
-    var a, p, s;
-    s = 1.70158;
-    p = 0;
-    a = c;
-    if (t === 0) {
-      return b;
-    } else if ((t /= d / 2) === 2) {
-      return b + c;
-    }
-    if (!p) {
-      p = d * (0.3 * 1.5);
-    }
-    if (a < Math.abs(c)) {
-      a = c;
-      s = p / 4;
-    } else {
-      s = p / (2 * Math.PI) * Math.asin(c / a);
-    }
-    if (t < 1) {
-      return -0.5 * (a * Math.pow(2, 10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math.PI) / p)) + b;
-    } else {
-      return a * Math.pow(2, -10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math.PI) / p) * 0.5 + c + b;
-    }
-  },
-  easeInBack: function(t, b, _c, d, s) {
-    var c = _c - b;
-    if (s === void 0) {
-      s = 1.70158;
-    }
-    return c * (t /= d) * t * ((s + 1) * t - s) + b;
-  },
-  easeOutBack: function(t, b, _c, d, s) {
-    var c = _c - b;
-    if (s === void 0) {
-      s = 1.70158;
-    }
-    return c * ((t = t / d - 1) * t * ((s + 1) * t + s) + 1) + b;
-  },
-  easeInOutBack: function(t, b, _c, d, s) {
-    var c = _c - b;
-    if (s === void 0) {
-      s = 1.70158;
-    }
-    if ((t /= d / 2) < 1) {
-      return c / 2 * (t * t * (((s *= 1.525) + 1) * t - s)) + b;
-    } else {
-      return c / 2 * ((t -= 2) * t * (((s *= 1.525) + 1) * t + s) + 2) + b;
-    }
-  },
-  easeInBounce: function(t, b, _c, d) {
-    var c = _c - b;
-    var v;
-    v = tweenFunctions.easeOutBounce(d - t, 0, c, d);
-    return c - v + b;
-  },
-  easeOutBounce: function(t, b, _c, d) {
-    var c = _c - b;
-    if ((t /= d) < 1 / 2.75) {
-      return c * (7.5625 * t * t) + b;
-    } else if (t < 2 / 2.75) {
-      return c * (7.5625 * (t -= 1.5 / 2.75) * t + 0.75) + b;
-    } else if (t < 2.5 / 2.75) {
-      return c * (7.5625 * (t -= 2.25 / 2.75) * t + 0.9375) + b;
-    } else {
-      return c * (7.5625 * (t -= 2.625 / 2.75) * t + 0.984375) + b;
-    }
-  },
-  easeInOutBounce: function(t, b, _c, d) {
-    var c = _c - b;
-    var v;
-    if (t < d / 2) {
-      v = tweenFunctions.easeInBounce(t * 2, 0, c, d);
-      return v * 0.5 + b;
-    } else {
-      v = tweenFunctions.easeOutBounce(t * 2 - d, 0, c, d);
-      return v * 0.5 + c * 0.5 + b;
-    }
-  }
-};
-
-module.exports = tweenFunctions;
-
-
-/***/ }),
-/* 276 */
 /***/ (function(module, exports) {
 
 var g;
@@ -25433,12 +25177,12 @@ module.exports = g;
 
 
 /***/ }),
-/* 277 */
+/* 276 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(127);
 
 
 /***/ })
-],[277]);
+],[276]);
 //# sourceMappingURL=index.js.map
