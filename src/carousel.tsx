@@ -145,7 +145,7 @@ class Carousel extends React.Component<ICarouselProps, any> {
     this.setDimensions();
     this.bindEvents();
     this.setExternalData();
-    if (this.props.autoplay && this.props.children.length > 1) {
+    if (this.props.autoplay && React.Children.count(this.props.children) > 1) {
       this.startAutoplay();
     }
   }
@@ -159,7 +159,7 @@ class Carousel extends React.Component<ICarouselProps, any> {
       this.goToSlide(nextProps.slideIndex);
     }
     if (this.props.autoplay !== nextProps.autoplay) {
-      if (nextProps.autoplay && nextProps.children.length > 1) {
+      if (nextProps.autoplay && React.Children.count(nextProps.children) > 1) {
         this.startAutoplay();
       } else {
         this.stopAutoplay();
@@ -526,8 +526,7 @@ class Carousel extends React.Component<ICarouselProps, any> {
     if (slidesToScroll === 'auto') {
       slidesToShow = this.state.slidesToScroll;
     }
-
-    if (this.touchObject.length > (this.state.slideWidth / slidesToShow!) / swipeSpeed!) {
+    if (React.Children.count(this.props.children) > 1 && this.touchObject.length > (this.state.slideWidth / slidesToShow!) / swipeSpeed!) {
       if (this.touchObject.direction === 1) {
         if (
           this.state.currentSlide >= React.Children.count(this.props.children) - slidesToShow! &&
