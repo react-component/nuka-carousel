@@ -89,7 +89,7 @@ class Carousel extends React.Component<ICarouselProps, any> {
     afterSlide: () => {},
     autoplay: false,
     resetAutoplay: true,
-    swipeSpeed: 5,
+    swipeSpeed: 12,
     autoplayInterval: 3000,
     beforeSlide: () => {},
     cellAlign: 'left',
@@ -145,7 +145,7 @@ class Carousel extends React.Component<ICarouselProps, any> {
     this.setDimensions();
     this.bindEvents();
     this.setExternalData();
-    if (this.props.autoplay && React.Children.count(this.props.children) > 1) {
+    if (this.props.autoplay) {
       this.startAutoplay();
     }
   }
@@ -159,7 +159,7 @@ class Carousel extends React.Component<ICarouselProps, any> {
       this.goToSlide(nextProps.slideIndex);
     }
     if (this.props.autoplay !== nextProps.autoplay) {
-      if (nextProps.autoplay && React.Children.count(nextProps.children) > 1) {
+      if (nextProps.autoplay) {
         this.startAutoplay();
       } else {
         this.stopAutoplay();
@@ -595,6 +595,9 @@ class Carousel extends React.Component<ICarouselProps, any> {
   }
 
   startAutoplay() {
+    if (React.Children.count(this.props.children) <= 1) {
+      return;
+    }
     this.autoplayID = setInterval(this.autoplayIterator, this.props.autoplayInterval);
   }
 

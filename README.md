@@ -11,101 +11,66 @@ Note: if you set `autoplayInterval` prop to less than 1000, You need to set the 
 #### develop
 
 ```sh
-# after modify and submit to master, you need add tag by yourself, e.g.
-git tag v2.2.0
-git push --tags
+npm install
+npm start # Running demo locally
 ```
 
 ------------
 
-#nuka-carousel
+# nuka-carousel
 
 A Pure ReactJS Carousel Component
 
 ![http://i.imgur.com/UwP5gle.gif](http://i.imgur.com/UwP5gle.gif)
 
-###Install
+### Install
 
 ```
 npm install nuka-carousel
 ```
 
-###Example
-```javascript
-'use strict';
+### Example
 
-var React = require('react');
+see examples dir
 
-var Carousel = require('nuka-carousel');
+### Props
 
-const App = React.createClass({
-  mixins: [Carousel.ControllerMixin],
-  render() {
-    return (
-      <Carousel>
-        <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide1"/>
-        <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide2"/>
-        <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide3"/>
-        <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide4"/>
-        <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide5"/>
-        <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide6"/>
-      </Carousel>
-    )
-  }
-});
-
-module.exports = App;
-```
-
-###Running demo locally
-
-The demo can be launched on local machine via `webpack-dev-server`. Run the following:
-
-```javascript
-// if webpack-dev-server is not installed globally
-./node_modules/.bin/webpack-dev-server
-
-```
-Now, you can access the application on  your localhost at following url: <a href="http://localhost:8080/demo" target="_blank">Demo</a>
-
-###Props
-
-####afterSlide
+#### afterSlide
 `React.PropTypes.func`
 
 Hook to be called after a slide is changed.
 
-####autoplay
+#### autoplay
 `React.PropTypes.bool`
 
 Autoplay mode active. Defaults to false.
 
-####autoplayInterval
+#### autoplayInterval
 `React.PropTypes.number`
 
 Interval for autoplay iteration. Defaults to 3000.
 
-####beforeSlide
+#### beforeSlide
 `React.PropTypes.func`
 
 Hook to be called before a slide is changed.
 
-####cellAlign
+#### cellAlign
 `React.PropTypes.oneOf(['left', 'center', 'right'])`
 
 When displaying more than one slide, sets which position to anchor the current slide to.
 
-####cellSpacing
+#### cellSpacing
 `React.PropTypes.number`
 
 Space between slides, as an integer, but reflected as `px`
 
-####data
+#### data
 `React.PropTypes.func`
 
 Used with the ControllerMixin to add carousel data to parent state.
 
-####decorators
+#### decorators
 `React.PropTypes.array`
 
 An array of objects that supply internal carousel controls.
@@ -134,52 +99,52 @@ var Decorators = [{
 // and BottomRight
 ```
 
-####dragging
+#### dragging
 `React.PropTypes.bool`
 
 Enable mouse swipe/dragging
 
-####easing
+#### easing
 `React.PropTypes.Function`
 
 Animation easing function. Default is `easeOutCirc`. See valid easings here: [https://github.com/chenglou/tween-functions](https://github.com/chenglou/tween-functions)
 
-####framePadding
+#### framePadding
 `React.PropTypes.string`
 
 Used to set the margin of the slider frame. Accepts any string dimension value such as `"0px 20px"` or `"500px"`.
 
-####frameOverflow
+#### frameOverflow
 `React.PropTypes.string`
 
 Used to set overflow style property on slider frame. Defaults to `hidden`.
 
-####edgeEasing
+#### edgeEasing
 `React.PropTypes.Function`
 
 Animation easing function when swipe exceeds edge. Default is `linear`. See valid easings here: [https://github.com/chenglou/tween-functions](https://github.com/chenglou/tween-functions)
 
-####initialSlideHeight
+#### initialSlideHeight
 `React.PropTypes.number`
 
 Initial height of the slides in pixels.
 
-####initialSlideWidth
+#### initialSlideWidth
 `React.PropTypes.number`
 
 Initial width of the slides in pixels.
 
-####slideIndex
+#### slideIndex
 `React.PropTypes.number`
 
 Manually set the index of the slide to be shown.
 
-####slidesToShow
+#### slidesToShow
 `React.PropTypes.number`
 
 Slides to show at once.
 
-####slidesToScroll
+#### slidesToScroll
 ```
 slidesToScroll: React.PropTypes.oneOfType([
   React.PropTypes.number,
@@ -189,38 +154,38 @@ slidesToScroll: React.PropTypes.oneOfType([
 
 Slides to scroll at once. Set to `"auto"` to always scroll the current number of visible slides.
 
-####slideWidth
+#### slideWidth
 
 `React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number])`
 
 Manually set slideWidth. If you want hard pixel widths, use a string like `slideWidth="20px"`, and if you prefer a percentage of the container, use a decimal integer like `slideWidth={0.8}`
 
-####speed
+#### speed
 `React.PropTypes.number`
 
 Animation duration.
 
-####swiping
+#### swiping
 `React.PropTypes.bool`
 
 Enable touch swipe/dragging
 
-####vertical
+#### vertical
 `React.PropTypes.bool`
 
 Enable the slides to transition vertically.
 
-####width
+#### width
 `React.PropTypes.string`
 
 Used to hardcode the slider width. Accepts any string dimension value such as `"80%"` or `"500px"`.
 
-####wrapAround
+#### wrapAround
 `React.PropTypes.bool`
 
 Sets infinite wrapAround mode. Defaults to `false`
 
-###ControllerMixin
+### ControllerMixin
 
 The ControllerMixin provides a way to add external controllers for a carousel. To use the controller mixin, add it to your parent component as shown below:
 
@@ -257,7 +222,3 @@ const App = React.createClass({
 });
 
 ```
-
-### Contributing
-
-See the [Contribution Docs](CONTRIBUTING.md).

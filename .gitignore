@@ -37,3 +37,4 @@ dist
 *.log.*
 yarn.lock
 _ts2js
+package-lock.json

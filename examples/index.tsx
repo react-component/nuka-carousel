@@ -14,21 +14,18 @@ class App extends React.Component<any, any> {
     return (<div>
       <Carousel
         style={{ minHeight: 100 }}
-        easing={easeOutElastic}
-        autoplay={false}
+        autoplay
         wrapAround
-        speed={1000}
-        autoplayInterval={1000}
+        autoplayInterval={2000}
         resetAutoplay={false}
-        swipeSpeed={35}
         slideIndex={this.state.slideIndex}
         afterSlide={newSlideIndex => this.setState({ slideIndex: newSlideIndex })}>
-        <img src="http://placehold.it/1000x400&text=slide1"/>
-        <img src="http://placehold.it/1000x400&text=slide2"/>
-        <img src="http://placehold.it/1000x400&text=slide3"/>
-        <img src="http://placehold.it/1000x400&text=slide4"/>
-        <img src="http://placehold.it/1000x400&text=slide5"/>
-        <img src="http://placehold.it/1000x400&text=slide6"/>
+        <img src="http://placehold.it/1000x400&text=slide1" style={{ maxWidth: '100%' }} />
+        <img src="http://placehold.it/1000x400&text=slide2" style={{ maxWidth: '100%' }} />
+        <img src="http://placehold.it/1000x400&text=slide3" style={{ maxWidth: '100%' }} />
+        <img src="http://placehold.it/1000x400&text=slide4" style={{ maxWidth: '100%' }} />
+        <img src="http://placehold.it/1000x400&text=slide5" style={{ maxWidth: '100%' }} />
+        <img src="http://placehold.it/1000x400&text=slide6" style={{ maxWidth: '100%' }} />
       </Carousel>
       <div style={{width: '50%', margin: 'auto'}}>
         <button onClick={() => this.setState({ slideIndex: 0 })}>1</button>
