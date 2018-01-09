@@ -35,6 +35,23 @@ class App extends React.Component<any, any> {
         <button onClick={() => this.setState({ slideIndex: 4 })}>5</button>
         <button onClick={() => this.setState({ slideIndex: 5 })}>6</button>
       </div>
+
+      <Carousel
+        className="space-carousel"
+        cellSpacing={-60}
+        autoplay
+        wrapAround
+        slideIndex={this.state.slideIndex}
+        afterSlide={newSlideIndex => this.setState({ slideIndex: newSlideIndex })}>
+        <img src="https://gw.alipayobjects.com/zos/rmsportal/hCyqdPEXhsCRfOXJFQbC.png" />
+        <img src="https://gw.alipayobjects.com/zos/rmsportal/QCuJKZxSjlRCtMzagoYS.png" />
+        <img src="https://gw.alipayobjects.com/zos/rmsportal/YHuGiyKMKMHysahEdDNO.png" />
+        <img src="https://gw.alipayobjects.com/zos/rmsportal/yUrSLGXUQPiyTTToFwQb.png" />
+        <img src="https://gw.alipayobjects.com/zos/rmsportal/aKFkXZsPOaTsQfIHOEJy.png" />
+      </Carousel>
+      <style dangerouslySetInnerHTML={{
+        __html: `.space-carousel img { max-width: 300px; margin: 0 auto }`
+      }} />
     </div>);
   }
 }
