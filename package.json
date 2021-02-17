@@ -9,7 +9,7 @@
     "raf": "^3.3.2"
   },
   "devDependencies": {
-    "@types/mocha": "~2.2.32",
+    "@types/mocha": "~8.2.1",
     "@types/react": "~16.0.2",
     "@types/react-dom": "15.5.1",
     "expect.js": "0.3.x",
